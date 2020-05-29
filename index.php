@@ -99,5 +99,47 @@ $f3->route('GET|POST /sign-up_2', function($f3){
 
 });
 
+
+//Sign In page
+$f3->route('GET|POST /sign-in', function($f3){
+    //echo '<h1>Hello existing member</h1>';
+
+    //If the form has been submitted
+    if($_SERVER["REQUEST_METHOD"]=="POST") {
+        //var_dump($_POST);
+
+        //validate data
+
+
+        //data is valid - store data in session variables and display the next form
+        if(empty($f3->get('errors'))) {
+            //Store the data in the session array
+            $_SESSION['username'] = $_POST['username'];
+            $_SESSION['password'] = $_POST['password'];
+
+            //var_dump($_SESSION);
+
+            //Redirect to sign-up_2 page
+            $f3->reroute('');
+
+        }
+
+    }
+
+    /*
+    //add previous submissions to the hive for sticky form
+    $f3->set('firstGiven', $_POST['fName']);
+    $f3->set('lastGiven', $_POST['lName']);
+    $f3->set('usernameGiven', $_POST['username']);
+    $f3->set('passwordGiven', $_POST['password']);
+    $f3->set('passConfirmGiven', $_POST['confirmPass']);
+    */
+
+    $view = new Template();
+    echo $view->render("views/signinPage.html");
+
+});
+
+
 //Run F3
 $f3->run();
