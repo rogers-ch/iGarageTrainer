@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Created by:                Corey Rogers and Chunhai Yang
+    Date submitted (v1.0):     06/01/2020
+    Assignment:                Final Project for IT 328
+    File Description:          This is the homepage for the iGarage Trainer web app
+-->
+
+<head>
+    <title>iGarage Trainer</title>
+
+    <include href="includes/header.htm"></include>
+</head>
+
+<body class="pt-5 bg-danger">
+
+<!--  Nav Bar -->
+
+<include href="includes/navbar.htm"></include>
+
+<!-- Main Div Container -->
+
+<div id="main" class="container pt-3 pb-3 pl-5 pr-5 mt-5 mb-5 border rounded bg-secondary text-light">
+
+    <!-- intro div -->
+    <div>
+        <div class="row">
+
+            <!-- left column -->
+            <div class="col-md-6">
+                <div class="text-center">
+                    <h1 class="h1 font-weight-bold pt-3" id="introTitle">Sign Up</h1>
+                    <h2 class="h3">-&nbsp;&nbsp;-</h2>
+                </div>
+                <form id="personalInfo" action="#" method="post" class="row">
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <label for="fName" class="font-weight-bold">First Name</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="fName" name="fName" value="{{ @fName }}">
+
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2"><i class="fas fa-address-card"></i></span>
+                                </div>
+
+                            </div>
+                            <span class="err">
+                                  <check if="{{ isset(@errors['name']) }}">
+                                        {{ @errors['name'] }}
+                                  </check>
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lName" class="font-weight-bold">Last Name</label>
+                            <input type="text" class="form-control" id="lName" name="lName" value="{{ @lName }}">
+                            <span class="err">
+                                  <check if="{{ isset(@errors['name']) }}">
+                                        {{ @errors['name'] }}
+                                  </check>
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age" class="font-weight-bold">Age</label>
+                            <input type="text" class="form-control" id="age" name="age" value="{{ @age }}">
+                            <span class="err">
+                                  <check if="{{ isset(@errors['age']) }}">
+                                        {{ @errors['age'] }}
+                                  </check>
+                            </span>
+
+                        </div>
+                    </div>
+                </form>
+
+
+
+            </div>  <!-- close left col div -->
+
+            <!-- right column -->
+            <div class="col-md-6">
+
+                <img src="images/runningShoes.jpg" class="rounded img-fluid" alt="Runner tying shoes">
+
+            </div>  <!-- close right col div -->
+
+        </div>  <!-- end row div -->
+    </div>  <!-- end intro div -->
+</div>  <!-- end container div -->
+
+
+</body>
+</html>
