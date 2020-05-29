@@ -4,11 +4,11 @@
     Created by:                Corey Rogers and Chunhai Yang
     Date submitted (v1.0):     06/01/2020
     Assignment:                Final Project for IT 328
-    File Description:          This is the homepage for the iGarage Trainer web app
+    File Description:          This is the user dashboard for the iGarage Trainer web app
 -->
 
 <head>
-    <title>iGarage Trainer</title>
+    <title>Dashboard</title>
 
     <include href="includes/header.htm"></include>
 </head>
@@ -23,33 +23,32 @@
 
 <div id="main" class="container pt-3 pb-3 pl-5 pr-5 mt-5 mb-5 border rounded bg-secondary text-light">
 
-    <!-- intro div -->
+    <!-- div -->
     <div>
         <div class="row">
 
             <!-- left column -->
             <div class="col-md-6">
                 <div class="text-center">
-                    <h1 class="h1 font-weight-bold pt-3" id="introTitle">iGarage Trainer</h1>
-                    <h2 class="h3">-&nbsp;&nbsp;-</h2>
+                    <h1 class="h1 font-weight-bold pt-3" id="introTitle">iGarage Trainer User Dashboard</h1>
+                    <h2 class="h3">Welcome back!</h2>
                 </div>
-                <p>iGarage Trainer is an app that helps...(more content here)</p>
 
-                <!-- testimonial section div -->
+                <!-- choice button section div -->
                 <div>
-                    <hr>
+                    <hr class="border-light">
                     <div class="text-center">
-                        <a href="/328/iGarageTrainer/sign-up_1">
-                            <button type="submit" class="btn btn-warning mb-3 text-center" id="newAccountButton">Create an Account!</button>
-                        </a><br>
-
-                        <label>Already a member?</label>
-                        <a href="/328/iGarageTrainer/sign-in">
-                            <button type="submit" class="btn btn-warning mb-2 text-center" id="signInButton">Sign in here!</button>
+                        <a href="/328/iGarageTrainer/workout_options">
+                            <button type="submit" class="btn btn-warning mb-3 text-center" id="workoutButton">Start a workout!</button>
                         </a>
 
+                        <div>
+                            <a href="#">
+                                <button type="submit" class="btn btn-warning mb-2 text-center" id="userLogButton">View my workout log</button>
+                            </a>
+                        </div>
                     </div>
-                </div>  <!-- close center testimonial div -->
+                </div>  <!-- close choice button div -->
 
             </div>  <!-- close left col div -->
 

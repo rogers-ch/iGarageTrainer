@@ -119,8 +119,8 @@ $f3->route('GET|POST /sign-in', function($f3){
 
             //var_dump($_SESSION);
 
-            //Redirect to sign-up_2 page
-            $f3->reroute('');
+            //Redirect to dashboard page
+            $f3->reroute('/dashboard');
 
         }
 
@@ -137,6 +137,25 @@ $f3->route('GET|POST /sign-in', function($f3){
 
     $view = new Template();
     echo $view->render("views/signinPage.html");
+
+});
+
+
+//User Dashboard Route
+$f3->route('GET|POST /dashboard', function($f3){
+    //echo '<h1>Hello existing member</h1>';
+
+    $view = new Template();
+    echo $view->render("views/userDashboard.html");
+
+});
+
+//Workout Options Route
+$f3->route('GET|POST /workout_options', function($f3){
+    //echo '<h1>Hello existing member</h1>';
+
+    $view = new Template();
+    echo $view->render("views/workoutChoices.html");
 
 });
 

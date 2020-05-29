@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Created by:                Corey Rogers and Chunhai Yang
+    Date submitted (v1.0):     06/01/2020
+    Assignment:                Final Project for IT 328
+    File Description:          This is the workout options page where users can make
+                               selections for muscle group and intensity level for the
+                               iGarage Trainer web app
+-->
+
+<head>
+    <title>Workout Options</title>
+
+    <include href="includes/header.htm"></include>
+</head>
+
+<body class="pt-5 bg-danger">
+
+<!--  Nav Bar -->
+
+<include href="includes/navbar.htm"></include>
+
+<!-- Main Div Container -->
+
+<div id="main" class="container pt-3 pb-3 pl-5 pr-5 mt-5 mb-5 border rounded bg-secondary text-light">
+
+    <form action="#" method="post" class="form-horizontal">
+        <div>
+            <h1 class="h1 pt-3">Workout Options</h1>
+            <hr class="border-light">
+
+
+            <!-- get muscle group -->
+            <label class="h4">What body area would you like to focus on today?</label>
+
+            <div class="container mx-4 form-group">
+                <!-- row one div -->
+                <div class="row">
+
+                    <fieldset>
+                        <input class="mr-2" type="radio" name="muscleGroup" id="biceps" value="biceps"><label class="mr-3 mb-0" for="biceps">Biceps</label>
+                        <input class="mr-2" type="radio" name="muscleGroup" id="triceps" value="triceps"><label class="mr-3 mb-0" for="triceps">Triceps</label>
+                        <input class="mr-2" type="radio" name="muscleGroup" id="chest" value="chest"><label class="mr-3 mb-0" for="chest">Chest</label>
+                        <input class="mr-2" type="radio" name="muscleGroup" id="back" value="back"><label class="mr-3 mb-0" for="back">Back</label>
+                    </fieldset>
+
+
+                </div>      <!-- end row one div -->
+                <!-- row two div -->
+                <div class="row">
+
+                    <fieldset>
+                        <input class="mr-2" type="radio" name="muscleGroup" id="abs" value="abs"><label class="mr-3 mb-0" for="abs">Abs</label>
+                        <input class="mr-2" type="radio" name="muscleGroup" id="legs" value="legs"><label class="mr-3 mb-0" for="legs">Legs</label>
+                        <input class="mr-2" type="radio" name="muscleGroup" id="total_body" value="total body"><label class="mr-3 mb-0" for="total_body">Total body</label>
+                    </fieldset>
+
+
+                </div>      <!-- end row two div -->
+
+            </div>
+            <hr class="border-light">
+
+            <!-- get fitness level -->
+            <label class="h4">What is your desired level of intensity?</label>
+
+            <div class="container mx-4 form-group">
+                <!-- row div -->
+                <div class="row">
+                    <fieldset>
+                        <input class="mr-2" type="radio" name="intensity" id="level_1" value="level 1"><label class="mr-3 mb-0" for="level_1">Level 1</label>
+                        <input class="mr-2" type="radio" name="intensity" id="level_2" value="level 2"><label class="mr-3 mb-0" for="level_2">Level 2</label>
+                        <input class="mr-2" type="radio" name="intensity" id="level_3" value="level 3"><label class="mr-3 mb-0" for="level_3">Level 3</label>
+                    </fieldset>
+
+                </div>      <!-- end row div -->
+
+            </div>
+
+            <div class="row">
+                <div class="ml-auto mr-0">
+                    <input class="btn btn-warning"
+                           type="submit" value="Get my workout >">
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>  <!-- end container div -->
+
+
+</body>
+</html>
