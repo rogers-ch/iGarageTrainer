@@ -13,10 +13,10 @@ $f3 = Base::instance();
 $f3->route('GET /', function() {
 
 
-    echo "<h1>"."Welcome to IGarage Trainer!"."</h1>";
+    //echo "<h1>"."Welcome to IGarage Trainer!"."</h1>";
 
-//    $view = new Template();
-//    echo $view->render('views/home.html');
+    $view = new Template();
+    echo $view->render('views/iGarageTrainer_home.html');
 
 });
 
