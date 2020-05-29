@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Created by:                Corey Rogers and Chunhai Yang
+    Date submitted (v1.0):     06/01/2020
+    Assignment:                Final Project for IT 328
+    File Description:          This is the second page of the new account signup form for the
+                               iGarage Trainer web app
+-->
+
+<head>
+    <title>Sign-Up 2</title>
+
+    <include href="includes/header.htm"></include>
+</head>
+
+<body class="pt-5 bg-danger">
+
+<!--  Nav Bar -->
+
+<include href="includes/navbar.htm"></include>
+
+<!-- Main Div Container -->
+
+<div id="main" class="container pt-3 pb-3 pl-5 pr-5 mt-5 mb-5 border rounded bg-secondary text-light">
+
+    <form action="#" method="post" class="form-horizontal">
+        <div>
+            <h1 class="h1 pt-3">Additional Information</h1>
+            <hr class="border-light">
+
+
+            <!-- get equipment -->
+            <label class="h4">What equipment do you have available?</label>
+
+            <div class="container mx-4 form-group">
+                <!-- row one div -->
+                <div class="row">
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='dumbbells'
+                                                               name='userEquipment[]' value='dumbbells'>Dumbbells</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='kettlebells'
+                                                               name='userEquipment[]' value='kettlebells'>Kettlebells</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='resistance_bands'
+                                                               name='userEquipment[]' value='resistance_bands'>Resistance bands</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='chairs'
+                                                               name='userEquipment[]' value='chairs'>Chairs</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='pull-up_bar'
+                                                               name='userEquipment[]' value='pull-up_bar'>Pull-up bar</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='no_equipment'
+                                                               name='userEquipment[]' value='no_equipment'>No equipment</label>
+                    </div>
+
+
+                </div>      <!-- end row one div -->
+
+            </div>
+            <hr class="border-light">
+
+            <!-- get fitness level -->
+            <label class="h4">What is your level of fitness?</label>
+
+            <div class="container mx-4 form-group">
+                <!-- row div -->
+                <div class="row">
+                    <fieldset>
+                        <input class="mr-2" type="radio" name="fitnessLevel" id="beginner" value="beginner"><label class="mr-3 mb-0" for="beginner">Beginner</label>
+                        <input class="mr-2" type="radio" name="fitnessLevel" id="intermediate" value="intermediate"><label class="mr-3 mb-0" for="intermediate">Intermediate</label>
+                        <input class="mr-2" type="radio" name="fitnessLevel" id="advanced" value="advanced"><label class="mr-3 mb-0" for="advanced">Advanced</label>
+                    </fieldset>
+
+                </div>      <!-- end row div -->
+
+            </div>
+
+            <div class="row">
+                <div class="ml-auto mr-0">
+                    <input class="btn btn-warning"
+                           type="submit" value="Create my account >">
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>  <!-- end container div -->
+
+
+</body>
+</html>
