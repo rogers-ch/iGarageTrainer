@@ -163,8 +163,32 @@ $f3->route('GET|POST /dashboard', function($f3){
 $f3->route('GET|POST /workout_options', function($f3){
     //echo '<h1>Hello existing member</h1>';
 
+    //If the form has been submitted
+    if($_SERVER["REQUEST_METHOD"]=="POST") {
+        //var_dump($_POST);
+
+        //validate data
+
+
+
+
+            //Redirect to dashboard page
+            $f3->reroute('/myWorkout');
+
+
+    }
+
     $view = new Template();
     echo $view->render("views/workoutChoices.html");
+
+});
+
+//My Workout Route
+$f3->route('GET|POST /myWorkout', function($f3){
+    //echo '<h1>Hello existing member</h1>';
+
+    $view = new Template();
+    echo $view->render("views/workoutView.html");
 
 });
 
