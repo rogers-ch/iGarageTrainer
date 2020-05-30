@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Created by:                Corey Rogers and Chunhai Yang
+    Date submitted (v1.0):     06/01/2020
+    Assignment:                Final Project for IT 328
+    File Description:          This is the first page of the new account signup form for the
+                               iGarage Trainer web app
+-->
+
+<head>
+    <title>Sign-Up 1</title>
+
+    <include href="includes/header.htm"></include>
+</head>
+
+<body class="pt-5 bg-danger">
+
+<!--  Nav Bar -->
+
+<include href="includes/navbar.htm"></include>
+
+<!-- Main Div Container -->
+
+<div id="main" class="container pt-3 pb-3 pl-5 pr-5 mt-5 mb-5 border rounded bg-secondary text-light">
+    <form id="userInfo" action="#" method="post">
+        <!-- inner div -->
+        <div>
+            <div class="row">
+
+                <!-- left column -->
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <h2 class="h2 pt-3">Thank you for choosing iGarage Trainer!</h2>
+                    </div>
+
+                    <a href="sign-in" class="bg-white">Get Started To Workout</a><br>
+                    <a href="{{ @BASE }}" class="bg-white">Home page</a>
+                </div>  <!-- close left col div -->
+
+                <!-- right column -->
+                <div class="col-md-6 d-none d-md-block">
+
+                    <img src="images/runningShoes.jpg" class="rounded img-fluid" alt="Runner tying shoes">
+
+                </div>  <!-- close right col div -->
+
+            </div>  <!-- end row div -->
+
+            <div class="row mt-3">
+                <div class="ml-auto mr-0">
+                    <input class="btn btn-warning"
+                           type="submit" value="Next >">
+                </div>
+            </div>
+
+        </div>  <!-- end inner div -->
+    </form>
+</div>  <!-- end container div -->
+
+
+</body>
+</html>

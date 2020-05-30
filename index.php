@@ -81,7 +81,7 @@ $f3->route('GET|POST /sign-up_2', function($f3){
             //var_dump($_SESSION);
 
             //Redirect to summary page
-            //$f3->reroute('summary');
+            $f3->reroute('confirm');
 
         }
 
@@ -97,6 +97,15 @@ $f3->route('GET|POST /sign-up_2', function($f3){
     $view = new Template();
     echo $view->render("views/signup_second.html");
 
+});
+// confirmation page after signing up
+$f3->route('GET /confirm', function() {
+    //echo '<h1>Thank you for your order!</h1>';
+
+    $view = new Template();
+    echo $view->render('views/confirmpage.html');
+
+    session_destroy();
 });
 
 
