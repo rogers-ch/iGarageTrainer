@@ -172,8 +172,8 @@ $f3->route('GET|POST /workout_options', function($f3){
 
 
 
-            //Redirect to dashboard page
-            $f3->reroute('/myWorkout');
+        //Redirect to dashboard page
+        $f3->reroute('/myWorkout');
 
 
     }
@@ -189,6 +189,16 @@ $f3->route('GET|POST /myWorkout', function($f3){
 
     $view = new Template();
     echo $view->render("views/workoutView.html");
+
+});
+
+
+//My Workout Log Route
+$f3->route('GET|POST /myWorkoutLog', function($f3){
+    //echo '<h1>Hello existing member</h1>';
+
+    $view = new Template();
+    echo $view->render("views/workoutLog.html");
 
 });
 
