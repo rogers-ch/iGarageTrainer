@@ -14,6 +14,20 @@ $f3->route('GET /', function() {
 
     //echo "<h1>"."Welcome to IGarage Trainer!"."</h1>";
 
+    /*
+    // test User and PremiumUser classes
+    echo "<pre>";
+    $preMember = new PremiumUser('Ben', 'James', 'Ben_23', 'test1234', '44');
+    echo print_r($preMember);
+
+    $preMember->setEquipment(['dumbbells', 'exercise bands', 'pull-up bar']);
+    $preMember->setFitnessLevel('advanced');
+    echo print_r($preMember);
+
+    echo "</pre>";
+    */
+
+
     $view = new Template();
     echo $view->render('views/iGarageTrainer_home.html');
 
@@ -27,22 +41,44 @@ $f3->route('GET|POST /sign-up_1', function($f3){
     if($_SERVER["REQUEST_METHOD"]=="POST") {
         //var_dump($_POST);
 
-        //validate data
+        //validate data - ADD THIS
 
 
         //data is valid - store data in session variables and display the next form
         if(empty($f3->get('errors'))) {
-            //Store the data in the session array
-            $_SESSION['fName'] = $_POST['fName'];
-            $_SESSION['lName'] = $_POST['lName'];
-            $_SESSION['username'] = $_POST['username'];
-            $_SESSION['password'] = $_POST['password'];
-            $_SESSION['confirmPass'] = $_POST['confirmPass'];
+
+            //instantiate the appropriate class - User or PremiumUser depending on whether PremiumUser box was checked
+            if(isset($_POST['premium'])) {
+                $user = new PremiumUser($_POST['fName'], $_POST['lName'],
+                    $_POST['username'], $_POST['password'], $_POST['age']);
+            } else {
+                $user = new User($_POST['fName'], $_POST['lName'],
+                    $_POST['username'], $_POST['password'], $_POST['age']);
+            }
+
+            //echo "<pre>";
+            //echo print_r($user);
+            //echo "</pre>";
+
+
+            //Store the user object in the session array
+            $_SESSION['user'] = $user;
+
 
             //var_dump($_SESSION);
 
-            //Redirect to sign-up_2 page
-            $f3->reroute('sign-up_2');
+            //Redirect to sign-up_2 page if this is a PremiumUser, otherwise send to summary page
+            if(get_class($_SESSION['user']) == 'PremiumUser') {
+
+                //Redirect to sign-up 2 page
+                $f3->reroute('sign-up_2');
+
+            } else {
+
+                //Redirect to confirm page
+                $f3->reroute('confirm');
+            }
+
 
         }
 
@@ -80,7 +116,7 @@ $f3->route('GET|POST /sign-up_2', function($f3){
 
             //var_dump($_SESSION);
 
-            //Redirect to summary page
+            //Redirect to confirm page
             $f3->reroute('confirm');
 
         }
@@ -98,7 +134,9 @@ $f3->route('GET|POST /sign-up_2', function($f3){
     echo $view->render("views/signup_second.html");
 
 });
-// confirmation page after signing up
+
+
+//Confirmation page after signing up
 $f3->route('GET /confirm', function() {
     //echo '<h1>Thank you for your order!</h1>';
 

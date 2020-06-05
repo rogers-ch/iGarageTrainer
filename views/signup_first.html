@@ -58,6 +58,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="age" class="font-weight-bold">Age</label>
+                        <input type="text" class="form-control" id="age" name="age" value="{{ @age }}">
+                        <span class="err">
+                              <check if="{{ isset(@errors['age']) }}">
+                                    {{ @errors['age'] }}
+                              </check>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
                         <label for="username" class="font-weight-bold">Username</label>
                         <input type="text" class="form-control" id="username" name="username" value="{{ @username }}">
                         <span class="err">
@@ -87,6 +97,27 @@
                                     {{ @errors['confirmPass'] }}
                               </check>
                         </span>
+
+                    </div>
+
+                    <!-- get premium user selection -->
+                    <div class="form-group mb-0">
+                        <label class="font-weight-bold mb-1" for="premium">Premium User</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <div class="form-check">
+                            <label class='form-check-label'>
+                                <input type='checkbox' class='form-check-input'
+                                       id='premium' name='premium[]'
+                                       value='premium'
+                                <check if="{{ isset(@premiumGiven) }}">
+                                    checked="checked"
+
+                                </check>
+
+                                >Sign me up to be a Premium User!
+                            </label>
+                        </div>
 
                     </div>
 
