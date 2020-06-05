@@ -65,7 +65,7 @@ $f3->route('GET|POST /sign-up_1', function($f3){
             $_SESSION['user'] = $user;
 
 
-            //var_dump($_SESSION);
+            var_dump($_SESSION);
 
             //Redirect to sign-up_2 page if this is a PremiumUser, otherwise send to summary page
             if(get_class($_SESSION['user']) == 'PremiumUser') {
@@ -104,20 +104,23 @@ $f3->route('GET|POST /sign-up_2', function($f3){
 
     //If the form has been submitted
     if($_SERVER["REQUEST_METHOD"]=="POST") {
-        //var_dump($_POST);
+        var_dump($_POST);
 
         //validate data - ADD LATER
 
         //data is valid - store data in session variables and display the next form
         if(empty($f3->get('errors'))) {
             //Store the data in the session array
-            $_SESSION['userEquipment'] = $_POST['userEquipment'];
-            $_SESSION['fitnessLevel'] = $_POST['fitnessLevel'];
+            //$_SESSION['user']->setEquipment($_POST['userEquipment']);
+           // $_SESSION['user']->setFitnessLevel($_POST['fitnessLevel']);
 
-            //var_dump($_SESSION);
+
+
+
+            var_dump($_SESSION);
 
             //Redirect to confirm page
-            $f3->reroute('confirm');
+            //$f3->reroute('confirm');
 
         }
 
