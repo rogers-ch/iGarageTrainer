@@ -2,35 +2,14 @@
 
 /*
 
-CREATE TABLE user (
-    user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    firstName VARCHAR(50),
-    lastName VARCHAR(50),
-    age INT,
-	username VARCHAR(100),
-    password VARCHAR(100);
-
-)
-
-CREATE TABLE premiumUser (
-    user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    firstName VARCHAR(50),
-    lastName VARCHAR(50),
-    age INT,
-	username VARCHAR(100),
-    password VARCHAR(100);
-    fitnessLevel
-
-)
-
-//NEEDS Edits
-INSERT INTO user (food, meal, condiments)
-VALUES ('sandwich', 'breakfast', 'sriracha, mayonnaise');
+INSERT INTO igarage_user
+VALUES (NULL, 'Admin', 'Admin', 'Admin', '@dm1n', 'advanced')
 
  */
 
-$home = $_SERVER['home'];
-require_once "/home/chrogers/config.php";
+$home = str_replace("public_html", "", $_SERVER['DOCUMENT_ROOT']);
+
+require_once $home . "config.php";
 
 class Database
 {
@@ -39,6 +18,7 @@ class Database
 
     function __construct()
     {
+
         //Connect to database with PDO
         try {
 

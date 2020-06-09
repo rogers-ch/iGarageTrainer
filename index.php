@@ -8,7 +8,6 @@ require_once("vendor/autoload.php");
 //Start a session
 session_start();
 
-
 //Instantiate the F3 Base class
 $f3 = Base::instance();
 
