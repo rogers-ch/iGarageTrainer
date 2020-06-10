@@ -27,8 +27,7 @@ CREATE TABLE exercise (
 
 CREATE TABLE equipment (
     equip_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    equip_name VARCHAR(100) UNIQUE,
-    equip_description TEXT
+    equip_name VARCHAR(100) UNIQUE
 
 ) ENGINE=InnoDB;
 
@@ -62,4 +61,13 @@ CREATE TABLE equipment_line (
 
 INSERT INTO igarage_user (user_id, firstName, lastName, username, password, fitness_level)
 VALUES (NULL, 'Admin', 'Admin', 'Admin', '@dm1n', 'advanced')
+
+--Insert statement for equipment table
+INSERT INTO equipment (equip_id, equip_name)
+VALUES 	(NULL, 'dumbbells'),
+        (NULL, 'kettlebells'),
+        (NULL, 'resistance bands'),
+        (NULL, 'chairs'),
+        (NULL, 'pull-up bar'),
+        (NULL, 'no equipment');
 
