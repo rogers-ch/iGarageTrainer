@@ -1,21 +1,27 @@
 <?php
 
-/*
-
-INSERT INTO igarage_user
-VALUES (NULL, 'Admin', 'Admin', 'Admin', '@dm1n', 'advanced')
-
- */
+//SELECT SHA1(password) FROM users WHERE username = ?
 
 $home = str_replace("public_html", "", $_SERVER['DOCUMENT_ROOT']);
 
 require_once $home . "config.php";
 
+
+/**
+ * Class Database
+ * Contains the methods for reading from and writing to the database for the iGarage Trainer project.
+ *
+ * @author      Corey Rogers <crogers25@mail.greenriver.edu> and Chunhai Yang <cyang21@mail.greenriver.edu>
+ * @version     1.0
+ */
 class Database
 {
 
     private $_dbh;
 
+    /**
+     * Database constructor.
+     */
     function __construct()
     {
 
@@ -33,15 +39,19 @@ class Database
     }
 
 
+    /**
+     * Writes a user's information to the database when a new user account is created
+     * @param $user a User or PremiumUser object
+     */
     function writeUser($user)
     {
         //var_dump($user);
 
 
-        //Write to database
+        //Write the user's information to the igarage_user table
         //1. Define the query
         $sql = "INSERT INTO igarage_user (user_id, firstName, lastName, username, password, fitness_level)
-                VALUES (:user_id, :firstName, :lastName, :username, :password, :fitness_level)";
+                VALUES (:user_id, :firstName, :lastName, :username, SHA1(:password), :fitness_level)";
 
         //2. Prepare the statement
         $statement = $this->_dbh->prepare($sql);
@@ -75,44 +85,45 @@ class Database
         $statement->execute();
         $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-        //set the user's UserNum to the user_id from the database
+        //Set the user's UserNum to the user_id from the database
         $user->setUserNum($result['LAST_INSERT_ID()']);
 
-        //Write the user's equipment to the database if this is a premium user - FIX THIS
+
+        //Write the user's equipment to the equipment_line table if this is a premium user
         if(get_class($user) == 'PremiumUser') {
-            /*
-            //1. Define the query
-            $sql = "INSERT INTO igarage_user (user_id, firstName, lastName, username, password, fitness_level)
-                VALUES (:user_id, :firstName, :lastName, :username, :password, :fitness_level)";
 
-            //2. Prepare the statement
-            $statement = $this->_dbh->prepare($sql);
+            //Get the user's equipment
+            $equipmentArray = $user->getEquipment();
 
-            //3. Bind the parameters
+            //Add each piece of equipment to the equipment_line table with the user's id
+            foreach ($equipmentArray as $equipment) {
 
-            $null = NULL;
+                //1. Define the query
+                $sql = "INSERT INTO equipment_line (user_id, equip_id)
+                VALUES (:user_id, :equip_id)";
 
-            $statement->bindParam(':user_id', $null);
-            $statement->bindParam(':firstName', $user->getFName());
-            $statement->bindParam(':lastName', $user->getLName());
-            $statement->bindParam(':username', $user->getUserName());
-            $statement->bindParam(':password', $user->getPassword());
+                //2. Prepare the statement
+                $statement = $this->_dbh->prepare($sql);
 
-            if(get_class($user) == 'PremiumUser') {
+                //3. Bind the parameters
 
-                $statement->bindParam(':fitness_level', $user->getFitnessLevel());
+                //Get the equip_id for each piece of equipment the user has (separate SQL query)
+                $innerStmt = $this->_dbh->prepare("SELECT * FROM equipment WHERE equip_name=?");
+                $innerStmt->execute([$equipment]);
+                $equipID = $innerStmt->fetch();
+                $equipID = $equipID['equip_id'];
 
-            } else {
+                $statement->bindParam(':user_id', $user->getUserNum());
+                $statement->bindParam(':equip_id', $equipID);
 
-                $statement->bindParam(':fitness_level', $null);
+
+                //4. Execute the statement
+                $statement->execute();
 
             }
 
-            //4. Execute the statement
-            $statement->execute();
+            unset($equipment);
 
-
-            */
         }
 
 
