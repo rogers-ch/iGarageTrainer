@@ -163,6 +163,13 @@ class Controller
     {
         //echo '<h1>Thank you for your order!</h1>';
 
+        //Write user to database
+        $GLOBALS['db']->writeUser($_SESSION['user']);
+
+
+        //echo $result['LAST_INSERT_ID()'];
+        //Set userNum for user to the userNum result from the database
+
         $view = new Template();
         echo $view->render('views/confirmpage.html');
 

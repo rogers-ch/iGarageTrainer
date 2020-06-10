@@ -2,7 +2,7 @@ CREATE TABLE igarage_user (
     user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     firstName VARCHAR(50),
     lastName VARCHAR(50),
-	username VARCHAR(100),
+	username VARCHAR(100) UNIQUE,
     password VARCHAR(100),
     fitness_level VARCHAR(100)
 
@@ -18,7 +18,7 @@ CREATE TABLE workout (
 
 CREATE TABLE exercise (
     exercise_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    exercise_name VARCHAR(100),
+    exercise_name VARCHAR(100) UNIQUE,
     description TEXT,
     difficulty INT,
     muscle_group VARCHAR(100)
@@ -27,7 +27,7 @@ CREATE TABLE exercise (
 
 CREATE TABLE equipment (
     equip_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    equip_name VARCHAR(100),
+    equip_name VARCHAR(100) UNIQUE,
     equip_description TEXT
 
 ) ENGINE=InnoDB;
@@ -58,4 +58,8 @@ CREATE TABLE equipment_line (
     FOREIGN KEY (equip_id) REFERENCES equipment(equip_id)
 
 ) ENGINE=InnoDB
+
+
+INSERT INTO igarage_user (user_id, firstName, lastName, username, password, fitness_level)
+VALUES (NULL, 'Admin', 'Admin', 'Admin', '@dm1n', 'advanced')
 

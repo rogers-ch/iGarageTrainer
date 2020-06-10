@@ -2,6 +2,11 @@
 
 /**
  * Class User
+ * Stores information associated with a user.
+ *
+ * @author      Corey Rogers <crogers25@mail.greenriver.edu> and Chunhai Yang <cyang21@mail.greenriver.edu>
+ * @version     1.0
+ *
  */
 class User
 {
@@ -10,7 +15,7 @@ class User
     private $_lName;
     private $_userName;
     private $_password;
-    private $_age;
+    private $_userNum;
 
 
     /**
@@ -19,22 +24,14 @@ class User
      * @param $_lName string last name
      * @param $_userName the user name
      * @param $_password the password
-     * @param $_age the age
      */
-    public function __construct($_fName,
-                                $_lName,
-                                $_userName,
-                                $_password,
-                                 $_age
-                                 )
-
-
+    public function __construct($_fName, $_lName, $_userName, $_password)
     {
         $this->setFName($_fName);
         $this->setLName($_lName);
         $this->setUserName($_userName);
         $this->setPassword($_password);
-        $this->setAge($_age);
+        $this->setUserNum(NULL);
 
     }
 
@@ -103,19 +100,19 @@ class User
     }
 
     /**
-     * @return the age
+     * @return the userNum
      */
-    public function getAge()
+    public function getUserNum()
     {
-        return $this->_age;
+        return $this->_userNum;
     }
 
     /**
-     * @param  $_age the age
+     * @param  $_userNum the userNum in the database
      */
-    public function setAge($_age)
+    public function setUserNum($_userNum)
     {
-        $this->_age = $_age;
+        $this->_userNum = $_userNum;
     }
 
 
