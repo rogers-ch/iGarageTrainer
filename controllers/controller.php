@@ -59,6 +59,26 @@ class Controller
             //var_dump($_POST);
 
             //validate data - ADD THIS
+            if(!$this->_validator->validName($_POST['fName'])){
+                $this->_f3->set('errors["name"]', "Enter a valid first name");
+            }
+            if(!$this->_validator->validName($_POST['lName'])){
+                $this->_f3->set('errors["name"]', "Enter a valid last name");
+            }
+            if(!$this->_validator->validAge($_POST['age'])){
+                $this->_f3->set('errors["age"]', "Please enter number between 18 and 118");
+            }
+            if(!$this->_validator->validUserName($_POST['username'])){
+                $this->_f3->set('errors["username"]', "Please enter length between 5 and 15");
+            }
+            if(!$this->_validator->validPassword($_POST['password'])){
+                $this->_f3->set('errors["password"]', "Please enter length between 8 and 15,
+                                                       at least contains one of '!, @, #, $, %'
+                                                       and uppercase letter");
+            }
+            if(!$this->_validator->validCpassword($_POST['password'],$_POST['confirmPass'])){
+                $this->_f3->set('errors["confirmPass"]', "password don't match");
+            }
 
 
             //data is valid - store data in session variables and display the next form
@@ -100,6 +120,12 @@ class Controller
             }
 
         }
+
+        $this->_f3->set('firstGiven', $_POST['fName']);
+        $this->_f3->set('lastGiven', $_POST['lName']);
+        $this->_f3->set('usernameGiven', $_POST['username']);
+        $this->_f3->set('passwordGiven', $_POST['password']);
+        $this->_f3->set('passConfirmGiven', $_POST['confirmPass']);
 
         /*
         //add previous submissions to the hive for sticky form
