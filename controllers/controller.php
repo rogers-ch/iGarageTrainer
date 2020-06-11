@@ -54,6 +54,14 @@ class Controller
     {
         //echo '<h1>Hello out there</h1>';
 
+        //Redirect to member dashboard if user tries to reach this page while logged in
+        //echo isset($_SESSION['loggedIn']);
+        //echo print_r($_SESSION);
+        if (isset($_SESSION['loggedIn'])) {
+            //Redirect to dashboard page
+            $this->_f3->reroute('/dashboard');
+        }
+
         //If the form has been submitted
         if($_SERVER["REQUEST_METHOD"]=="POST") {
             //var_dump($_POST);
@@ -154,6 +162,21 @@ class Controller
     {
         //echo '<h1>Hello out there</h1>';
 
+        //Redirect to default route if user tries to reach this page directly
+        if (!isset($_SESSION['user'])) {
+
+            //Redirect to home page
+            $this->_f3->reroute('/');
+
+        }
+
+        //Redirect to member dashboard if user tries to reach this page while logged in
+        if (isset($_SESSION['loggedIn'])) {
+            //Redirect to dashboard page
+            $this->_f3->reroute('/dashboard');
+        }
+
+
         //If the form has been submitted
         if($_SERVER["REQUEST_METHOD"]=="POST") {
             //var_dump($_POST);
@@ -195,6 +218,20 @@ class Controller
     {
         //echo '<h1>Thank you for your order!</h1>';
 
+        //Redirect to default route if user tries to reach this page directly
+        if (!isset($_SESSION['user'])) {
+
+            //Redirect to home page
+            $this->_f3->reroute('/');
+
+        }
+
+        //Redirect to member dashboard if user tries to reach this page while logged in
+        if (isset($_SESSION['loggedIn'])) {
+            //Redirect to dashboard page
+            $this->_f3->reroute('/dashboard');
+        }
+
         //Write user to database
         $GLOBALS['db']->writeUser($_SESSION['user']);
 
@@ -233,11 +270,13 @@ class Controller
             }
 
 
-            //data is valid - store data in session variables and display the next form
+            //Username and password are valid - store correct user object in session and set loggedIn variable
             if(empty($this->_f3->get('errors'))) {
-                //Store the data in the session array
-                $_SESSION['username'] = $_POST['username'];
-                $_SESSION['password'] = $_POST['password'];
+                //Store the user object in the session array
+                //$_SESSION['user'] = $GLOBALS['db']->getUser($_POST['username']);
+
+                //Set loggedIn flag variable to true
+                $_SESSION['loggedIn'] = TRUE;
 
                 //var_dump($_SESSION);
 
@@ -265,6 +304,13 @@ class Controller
     {
         //echo '<h1>Hello existing member</h1>';
 
+        //Redirect to sign-in page if user tries to reach this page without being logged in
+        if (!isset($_SESSION['loggedIn'])) {
+
+            //Redirect to login page
+            $this->_f3->reroute('/sign-in');
+        }
+
         $view = new Template();
         echo $view->render("views/userDashboard.html");
 
@@ -276,6 +322,13 @@ class Controller
     public function workout_options()
     {
         //echo '<h1>Hello existing member</h1>';
+
+        //Redirect to sign-in page if user tries to reach this page without being logged in
+        if (!isset($_SESSION['loggedIn'])) {
+
+            //Redirect to login page
+            $this->_f3->reroute('/sign-in');
+        }
 
         //If the form has been submitted
         if($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -304,6 +357,13 @@ class Controller
     {
         //echo '<h1>Hello existing member</h1>';
 
+        //Redirect to sign-in page if user tries to reach this page without being logged in
+        if (!isset($_SESSION['loggedIn'])) {
+
+            //Redirect to login page
+            $this->_f3->reroute('/sign-in');
+        }
+
         $view = new Template();
         echo $view->render("views/workoutView.html");
 
@@ -316,13 +376,43 @@ class Controller
     {
         //echo '<h1>Hello existing member</h1>';
 
+        //Redirect to sign-in page if user tries to reach this page without being logged in
+        if (!isset($_SESSION['loggedIn'])) {
+
+            //Redirect to login page
+            $this->_f3->reroute('/sign-in');
+        }
+
         $view = new Template();
         echo $view->render("views/workoutLog.html");
 
     }
 
+    /**
+     * Display the logout route
+     */
+    public function logout()
+    {
+        //echo '<h1>Hello existing member</h1>';
 
+        //Redirect to sign-in page if user tries to reach this page without being logged in
+        if (!isset($_SESSION['loggedIn'])) {
 
+            //Redirect to login page
+            $this->_f3->reroute('/sign-in');
+        }
+
+        //echo print_r($_SESSION);
+
+        session_destroy();
+        $_SESSION = array();
+
+        //echo print_r($_SESSION);
+
+        $view = new Template();
+        echo $view->render("views/logoutConfirm.html");
+
+    }
 
 
 }

@@ -88,6 +88,13 @@ $f3->route('GET|POST /myWorkoutLog', function(){
 
 });
 
+//Logout Route
+$f3->route('GET|POST /logout', function(){
+
+    $GLOBALS['controller']->logout();
+
+});
+
 
 //Run F3
 $f3->run();
