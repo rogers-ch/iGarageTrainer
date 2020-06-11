@@ -20,7 +20,7 @@ class Validate
         return !empty($name) && ctype_alpha($name);
     }
 
-// ensure the age input is between 18 and 118
+    // ensure the age input is between 18 and 118
 
     /**
      * @param $age
@@ -32,7 +32,7 @@ class Validate
         return is_numeric($age) && ($age >= 18 && $age <= 118);
     }
 
-//ensure the length of username between 5 and 15
+    //ensure the length of username between 5 and 15
     function validUserName($userName)
     {
         if(preg_match('/^\w{5,15}$/',$userName))
@@ -45,8 +45,8 @@ class Validate
         }
     }
 
-// ensure the password contains one of special chars "!, @, #, $, %"
-//length of password between 8 and 20, contains both lower and upper case letter
+    // ensure the password contains one of special chars "!, @, #, $, %"
+    //length of password between 8 and 20, contains both lower and upper case letter
     function validPassword($password)
     {
         $isValid = true;
@@ -73,12 +73,12 @@ class Validate
             $isValid = false;
         }
         else
-            {
+        {
             return true;
         }
     }
 
-// ensure the confirm password is identical to the password
+    // ensure the confirm password is identical to the password
     function validCpassword($password,$Cpassword)
     {
         if($password!=$Cpassword)
@@ -92,14 +92,4 @@ class Validate
     }
 
     // ending of validation for first sign up page
-
-
-
-
-
-
-
-
-
-
 }

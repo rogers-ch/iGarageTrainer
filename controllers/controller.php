@@ -58,7 +58,7 @@ class Controller
         if($_SERVER["REQUEST_METHOD"]=="POST") {
             //var_dump($_POST);
 
-            //validate data - ADD THIS
+            //validate data
             if(!$this->_validator->validName($_POST['fName'])){
                 $this->_f3->set('errors["name"]', "Enter a valid first name");
             }
@@ -121,20 +121,14 @@ class Controller
 
         }
 
+
+        //add previous submissions to the hive for sticky form
         $this->_f3->set('firstGiven', $_POST['fName']);
         $this->_f3->set('lastGiven', $_POST['lName']);
         $this->_f3->set('usernameGiven', $_POST['username']);
         $this->_f3->set('passwordGiven', $_POST['password']);
         $this->_f3->set('passConfirmGiven', $_POST['confirmPass']);
 
-        /*
-        //add previous submissions to the hive for sticky form
-        $f3->set('firstGiven', $_POST['fName']);
-        $f3->set('lastGiven', $_POST['lName']);
-        $f3->set('usernameGiven', $_POST['username']);
-        $f3->set('passwordGiven', $_POST['password']);
-        $f3->set('passConfirmGiven', $_POST['confirmPass']);
-        */
 
         $view = new Template();
         echo $view->render("views/signup_first.html");
