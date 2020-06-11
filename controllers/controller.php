@@ -220,7 +220,17 @@ class Controller
         if($_SERVER["REQUEST_METHOD"]=="POST") {
             //var_dump($_POST);
 
-            //validate data
+            //Check for correct username and password
+            //Check to see if username is in the database
+            if(!($GLOBALS['db']->checkUserName($_POST['username']) == 1)){
+                $this->_f3->set('errors["username"]', "Please enter a valid username.");
+            } else {
+
+                //Check to see if password matches stored password for the username
+                if (!($GLOBALS['db']->checkPassword($_POST['username'], $_POST['password']) == 1)) {
+                    $this->_f3->set('errors["password"]', "Please enter a valid password.");
+                }
+            }
 
 
             //data is valid - store data in session variables and display the next form
@@ -238,14 +248,10 @@ class Controller
 
         }
 
-        /*
-        //add previous submissions to the hive for sticky form
-        $f3->set('firstGiven', $_POST['fName']);
-        $f3->set('lastGiven', $_POST['lName']);
-        $f3->set('usernameGiven', $_POST['username']);
-        $f3->set('passwordGiven', $_POST['password']);
-        $f3->set('passConfirmGiven', $_POST['confirmPass']);
-        */
+
+        //add previously submitted username to the hive for sticky form
+        $this->_f3->set('usernameGiven', $_POST['username']);
+
 
         $view = new Template();
         echo $view->render("views/signinPage.html");
