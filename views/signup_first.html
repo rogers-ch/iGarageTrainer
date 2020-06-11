@@ -74,6 +74,9 @@
                               <check if="{{ isset(@errors['username']) }}">
                                     {{ @errors['username'] }}
                               </check>
+                                <check if="{{ isset(@errors['dupUserName']) }}">
+                                    {{ @errors['dupUserName'] }}
+                              </check>
                         </span>
 
                     </div>

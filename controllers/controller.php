@@ -58,6 +58,7 @@ class Controller
         if($_SERVER["REQUEST_METHOD"]=="POST") {
             //var_dump($_POST);
 
+
             //validate data
             if(!$this->_validator->validName($_POST['fName'])){
                 $this->_f3->set('errors["name"]', "Enter a valid first name");
@@ -68,9 +69,18 @@ class Controller
             if(!$this->_validator->validAge($_POST['age'])){
                 $this->_f3->set('errors["age"]', "Please enter number between 18 and 118");
             }
+
             if(!$this->_validator->validUserName($_POST['username'])){
                 $this->_f3->set('errors["username"]', "Please enter length between 5 and 15");
             }
+            else {
+                //Check to see if the username is already in the database, if so require different username
+                if($GLOBALS['db']->checkUserName($_POST['username']) == 1){
+                    $this->_f3->set('errors["dupUserName"]', "The username you selected is already in use. 
+                    Please try a different user name.");
+                }
+            }
+
             if(!$this->_validator->validPassword($_POST['password'])){
                 $this->_f3->set('errors["password"]', "Please enter length between 8 and 15,
                                                        at least contains one of '!, @, #, $, %'
@@ -79,6 +89,8 @@ class Controller
             if(!$this->_validator->validCpassword($_POST['password'],$_POST['confirmPass'])){
                 $this->_f3->set('errors["confirmPass"]', "password don't match");
             }
+
+            //echo $GLOBALS['db']->checkUserName($_POST['username']);
 
 
             //data is valid - store data in session variables and display the next form
