@@ -298,7 +298,7 @@ class Controller
                 //var_dump($_SESSION);
 
                 //Redirect to dashboard page
-                //$this->_f3->reroute('/dashboard');
+                $this->_f3->reroute('/dashboard');
 
             }
 
