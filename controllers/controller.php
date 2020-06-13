@@ -272,8 +272,25 @@ class Controller
 
             //Username and password are valid - store correct user object in session and set loggedIn variable
             if(empty($this->_f3->get('errors'))) {
-                //Store the user object in the session array
-                //$_SESSION['user'] = $GLOBALS['db']->getUser($_POST['username']);
+
+                //Read the user's information from the database
+                $userInfoArray = $GLOBALS['db']->readUser($_POST['username']);
+
+                //Use the $userInfoArray to create the user object and store it in the Session array
+                if ($userInfoArray['fitness_level'] != NULL) {
+                    $_SESSION['user'] = new PremiumUser($userInfoArray['firstName'], $userInfoArray['lastName'],
+                        $userInfoArray['username'], $_POST['password']);
+
+                    $_SESSION['user']->setUserNum($userInfoArray['user_id']);
+                    $_SESSION['user']->setEquipment($userInfoArray['equipment']);
+                    $_SESSION['user']->setFitnessLevel($userInfoArray['fitness_level']);
+
+                } else {
+                    $_SESSION['user'] = new User($userInfoArray['firstName'], $userInfoArray['lastName'],
+                        $userInfoArray['username'], $_POST['password']);
+                    $_SESSION['user']->setUserNum($userInfoArray['user_id']);
+                }
+
 
                 //Set loggedIn flag variable to true
                 $_SESSION['loggedIn'] = TRUE;
@@ -281,7 +298,7 @@ class Controller
                 //var_dump($_SESSION);
 
                 //Redirect to dashboard page
-                $this->_f3->reroute('/dashboard');
+                //$this->_f3->reroute('/dashboard');
 
             }
 
