@@ -16,20 +16,21 @@ class PremiumUser extends User
 
     /**
      * PremiumUser constructor.
-     * @param $_fName
-     * @param $_lName
-     * @param $_userName
-     * @param $_password
+     * @param $fName
+     * @param $lName
+     * @param $userName
+     * @param $password
      */
-    public function __construct($_fName, $_lName, $_userName, $_password)
+    public function __construct($fName, $lName, $userName, $password)
     {
-        parent::__construct($_fName, $_lName, $_userName, $_password);
+        parent::__construct($fName, $lName, $userName, $password);
 
 
     }
 
     /**
-     * @return mixed
+     * Get the equipment level for this PremiumUser
+     * @return array the user's equipment
      */
     public function getEquipment()
     {
@@ -37,7 +38,8 @@ class PremiumUser extends User
     }
 
     /**
-     * @param mixed $equipment
+     * Set the equipment for this PremiumUser
+     * @param Array $equipment
      */
     public function setEquipment($equipment)
     {
@@ -45,7 +47,8 @@ class PremiumUser extends User
     }
 
     /**
-     * @return mixed
+     * Get the fitness level for this PremiumUser
+     * @return String
      */
     public function getFitnessLevel()
     {
@@ -53,7 +56,8 @@ class PremiumUser extends User
     }
 
     /**
-     * @param mixed $fitnessLevel
+     * Set the fitness level for this PremiumUser
+     * @param String $fitnessLevel
      */
     public function setFitnessLevel($fitnessLevel)
     {

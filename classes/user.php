@@ -20,23 +20,24 @@ class User
 
     /**
      * User constructor.
-     * @param $_fName string first name
-     * @param $_lName string last name
-     * @param $_userName the user name
-     * @param $_password the password
+     * @param $fName string first name
+     * @param $lName string last name
+     * @param $userName the user name
+     * @param $password the password
      */
-    public function __construct($_fName, $_lName, $_userName, $_password)
+    public function __construct($fName, $lName, $userName, $password)
     {
-        $this->setFName($_fName);
-        $this->setLName($_lName);
-        $this->setUserName($_userName);
-        $this->setPassword($_password);
+        $this->setFName($fName);
+        $this->setLName($lName);
+        $this->setUserName($userName);
+        $this->setPassword($password);
         $this->setUserNum(NULL);
 
     }
 
     /**
-     * @return first name
+     * Get the first name for this User
+     * @return String first name
      */
     public function getFName()
     {
@@ -44,7 +45,8 @@ class User
     }
 
     /**
-     * @param last name
+     * Set the first name for this User
+     * @param String first name
      */
     public function setFName($fName)
     {
@@ -52,7 +54,8 @@ class User
     }
 
     /**
-     * @return last name
+     * Get the last name for this User
+     * @return String last name
      */
     public function getLName()
     {
@@ -60,7 +63,8 @@ class User
     }
 
     /**
-     * @param last name
+     * Set the last name for this User
+     * @param String last name
      */
     public function setLName($lName)
     {
@@ -68,7 +72,8 @@ class User
     }
 
     /**
-     * @return the user name
+     * Get the username for this User
+     * @return String the user name
      */
     public function getUserName()
     {
@@ -76,7 +81,8 @@ class User
     }
 
     /**
-     * @param  $userName the user name
+     * Set the username for this User
+     * @param  $userName String user name
      */
     public function setUserName($userName)
     {
@@ -84,7 +90,8 @@ class User
     }
 
     /**
-     * @return the password
+     * Get the password for this User
+     * @return String the password
      */
     public function getPassword()
     {
@@ -92,7 +99,8 @@ class User
     }
 
     /**
-     * @param  $password the password
+     * Set the password
+     * @param  $password String the password
      */
     public function setPassword($password)
     {
@@ -100,7 +108,8 @@ class User
     }
 
     /**
-     * @return the userNum
+     * Get the userNum for this User
+     * @return int the userNum
      */
     public function getUserNum()
     {
@@ -108,7 +117,8 @@ class User
     }
 
     /**
-     * @param  $_userNum the userNum in the database
+     * Set the userNum for this User
+     * @param  $_userNum String the userNum in the database
      */
     public function setUserNum($_userNum)
     {
