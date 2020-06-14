@@ -62,49 +62,59 @@
 
 
             <!-- get muscle group -->
-            <label class="h4">What body area would you like to focus on today?</label>
+            <label class="h4">What body areas would you like to focus on today?</label>
+            <p>Please either choose two body areas from the first list or select 'Total Body' below.</p>
 
             <div class="container mx-4 form-group">
+
                 <!-- row one div -->
                 <div class="row">
 
-                    <fieldset>
-                        <input class="mr-2" type="radio" name="muscleGroup" id="biceps" value="biceps"><label class="mr-3 mb-0" for="biceps">Biceps</label>
-                        <input class="mr-2" type="radio" name="muscleGroup" id="triceps" value="triceps"><label class="mr-3 mb-0" for="triceps">Triceps</label>
-                        <input class="mr-2" type="radio" name="muscleGroup" id="chest" value="chest"><label class="mr-3 mb-0" for="chest">Chest</label>
-                        <input class="mr-2" type="radio" name="muscleGroup" id="back" value="back"><label class="mr-3 mb-0" for="back">Back</label>
-                    </fieldset>
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='biceps'
+                                                               name='muscleGroup[]' value='biceps'>Biceps</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='triceps'
+                                                               name='muscleGroup[]' value='triceps'>Triceps</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='chest'
+                                                               name='muscleGroup[]' value='chest'>Chest</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='back'
+                                                               name='muscleGroup[]' value='back'>Back</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='abs'
+                                                               name='muscleGroup[]' value='abs'>Abs</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='legs'
+                                                               name='muscleGroup[]' value='legs'>Legs</label>
+                    </div>
 
 
                 </div>      <!-- end row one div -->
-                <!-- row two div -->
-                <div class="row">
-
-                    <fieldset>
-                        <input class="mr-2" type="radio" name="muscleGroup" id="abs" value="abs"><label class="mr-3 mb-0" for="abs">Abs</label>
-                        <input class="mr-2" type="radio" name="muscleGroup" id="legs" value="legs"><label class="mr-3 mb-0" for="legs">Legs</label>
-                        <input class="mr-2" type="radio" name="muscleGroup" id="total_body" value="total body"><label class="mr-3 mb-0" for="total_body">Total body</label>
-                    </fieldset>
-
-
-                </div>      <!-- end row two div -->
 
             </div>
             <hr class="border-light">
 
-            <!-- get fitness level -->
-            <label class="h4">What is your desired level of intensity?</label>
-
             <div class="container mx-4 form-group">
-                <!-- row div -->
+                <!-- row 2 div -->
                 <div class="row">
-                    <fieldset>
-                        <input class="mr-2" type="radio" name="intensity" id="easy" value="easy"><label class="mr-3 mb-0" for="easy">Easy</label>
-                        <input class="mr-2" type="radio" name="intensity" id="medium" value="medium"><label class="mr-3 mb-0" for="medium">Medium</label>
-                        <input class="mr-2" type="radio" name="intensity" id="hard" value="hard"><label class="mr-3 mb-0" for="hard">Hard</label>
-                    </fieldset>
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='total_body'
+                                                               name='muscleGroup[]' value='total body'>Total body</label>
+                    </div>
 
-                </div>      <!-- end row div -->
+                </div>      <!-- end row 2 div -->
 
             </div>
 
