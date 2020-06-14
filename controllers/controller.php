@@ -431,5 +431,38 @@ class Controller
 
     }
 
+    /**
+     * Display the admin route
+     */
+    public function admin()
+    {
+        //echo '<h1>Hello existing member</h1>';
+
+        //echo print_r($_SESSION);
+
+        //Redirect to sign-in page if user tries to reach this page without being logged in
+        if (!isset($_SESSION['loggedIn'])) {
+
+            //Redirect to login page
+            $this->_f3->reroute('/sign-in');
+        }
+        else {
+
+            //echo $_SESSION['user']->getUserName();
+
+            //If the user is not the administrator, then redirect to member dashboard
+            if (strcmp($_SESSION['user']->getUserName(), "Admin") != 0) {
+
+                //Redirect to member dashboard page
+                $this->_f3->reroute('/dashboard');
+            }
+
+        }
+
+        $view = new Template();
+        echo $view->render("views/admin.html");
+
+    }
+
 
 }

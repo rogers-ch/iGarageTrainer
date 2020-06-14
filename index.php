@@ -95,6 +95,13 @@ $f3->route('GET|POST /logout', function(){
 
 });
 
+//Admin Route
+$f3->route('GET|POST /admin', function(){
+
+    $GLOBALS['controller']->admin();
+
+});
+
 
 //Run F3
 $f3->run();
