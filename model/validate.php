@@ -49,33 +49,33 @@ class Validate
     //length of password between 8 and 20, contains both lower and upper case letter
     function validPassword($password)
     {
-        $isValid = true;
+        $isValid = false;
+
+        //Test for special characters
         $specialChars = array('!','@','#','$','%');
         foreach($specialChars as $char)
         {
-            if(strpos($password,$char) == 0)
+            if(strpos($password, $char) !== FALSE)
             {
-                $isValid = false;
+                $isValid = true;
 
             }
         }
 
-        if(strlen($password)<8 && strlen($password)>20)
+        //Test for length between 8 and 15
+        if(strlen($password) < 8 || strlen($password) > 15)
         {
             $isValid = false;
         }
-        if(strtoupper($password)==$password)
+
+        //Test to make sure there is at least one capital letter
+        if(!preg_match('/[A-Z]/', $password))
         {
             $isValid = false;
         }
-        if(strtolower($password)==$password)
-        {
-            $isValid = false;
-        }
-        else
-        {
-            return true;
-        }
+
+        return $isValid;
+
     }
 
     // ensure the confirm password is identical to the password

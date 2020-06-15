@@ -69,10 +69,10 @@ class Controller
 
             //validate data
             if(!$this->_validator->validName($_POST['fName'])){
-                $this->_f3->set('errors["name"]', "Enter a valid first name");
+                $this->_f3->set('errors["fName"]', "Enter a valid first name");
             }
             if(!$this->_validator->validName($_POST['lName'])){
-                $this->_f3->set('errors["name"]', "Enter a valid last name");
+                $this->_f3->set('errors["lName"]', "Enter a valid last name");
             }
             if(!$this->_validator->validAge($_POST['age'])){
                 $this->_f3->set('errors["age"]', "Please enter number between 18 and 118");
@@ -90,12 +90,12 @@ class Controller
             }
 
             if(!$this->_validator->validPassword($_POST['password'])){
-                $this->_f3->set('errors["password"]', "Please enter length between 8 and 15,
-                                                       at least contains one of '!, @, #, $, %'
-                                                       and uppercase letter");
+                $this->_f3->set('errors["password"]', "Password must be between 8 and 15 characters long, contain 
+                                                        at least one uppercase letter, and contain at least one of 
+                                                        the following special characters: '!, @, #, $, %'");
             }
             if(!$this->_validator->validCpassword($_POST['password'],$_POST['confirmPass'])){
-                $this->_f3->set('errors["confirmPass"]', "password don't match");
+                $this->_f3->set('errors["confirmPass"]', "Please confirm your password.");
             }
 
             //echo $GLOBALS['db']->checkUserName($_POST['username']);
@@ -145,9 +145,12 @@ class Controller
         //add previous submissions to the hive for sticky form
         $this->_f3->set('firstGiven', $_POST['fName']);
         $this->_f3->set('lastGiven', $_POST['lName']);
+        $this->_f3->set('ageGiven', $_POST['age']);
         $this->_f3->set('usernameGiven', $_POST['username']);
-        $this->_f3->set('passwordGiven', $_POST['password']);
-        $this->_f3->set('passConfirmGiven', $_POST['confirmPass']);
+        if (isset($_POST['premium'])) {
+            $this->_f3->set('premiumGiven', TRUE);
+        }
+
 
 
         $view = new Template();
@@ -282,7 +285,7 @@ class Controller
 
             //Check for correct username and password
             //Check to see if username is in the database
-            if(!($GLOBALS['db']->checkUserName($_POST['username']) == 1)){
+            if(($_POST['username'] == "") || (!$GLOBALS['db']->checkUserName($_POST['username']) == 1)){
                 $this->_f3->set('errors["username"]', "Please enter a valid username.");
             } else {
 

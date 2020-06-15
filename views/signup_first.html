@@ -39,27 +39,27 @@
                 <div class="col-lg-8 offset-lg-2">
                     <div class="form-group">
                         <label for="fName" class="font-weight-bold">First Name</label>
-                        <input type="text" class="form-control" id="fName" name="fName" value="{{ @fName }}">
+                        <input type="text" class="form-control" id="fName" name="fName" value="{{ @firstGiven }}">
                         <span class="err">
-                              <check if="{{ isset(@errors['name']) }}">
-                                    {{ @errors['name'] }}
+                              <check if="{{ isset(@errors['fName']) }}">
+                                    {{ @errors['fName'] }}
                               </check>
                         </span>
                     </div>
 
                     <div class="form-group">
                         <label for="lName" class="font-weight-bold">Last Name</label>
-                        <input type="text" class="form-control" id="lName" name="lName" value="{{ @lName }}">
+                        <input type="text" class="form-control" id="lName" name="lName" value="{{ @lastGiven }}">
                         <span class="err">
-                              <check if="{{ isset(@errors['name']) }}">
-                                    {{ @errors['name'] }}
+                              <check if="{{ isset(@errors['lName']) }}">
+                                    {{ @errors['lName'] }}
                               </check>
                         </span>
                     </div>
 
                     <div class="form-group">
                         <label for="age" class="font-weight-bold">Age</label>
-                        <input type="text" class="form-control" id="age" name="age" value="{{ @age }}">
+                        <input type="text" class="form-control" id="age" name="age" value="{{ @ageGiven }}">
                         <span class="err">
                               <check if="{{ isset(@errors['age']) }}">
                                     {{ @errors['age'] }}
@@ -69,7 +69,7 @@
 
                     <div class="form-group">
                         <label for="username" class="font-weight-bold">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" value="{{ @username }}">
+                        <input type="text" class="form-control" id="username" name="username" value="{{ @usernameGiven }}">
                         <span class="err">
                               <check if="{{ isset(@errors['username']) }}">
                                     {{ @errors['username'] }}
@@ -83,7 +83,7 @@
 
                     <div class="form-group">
                         <label for="password" class="font-weight-bold">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" value="{{ @password }}">
+                        <input type="password" class="form-control" id="password" name="password">
                         <span class="err">
                               <check if="{{ isset(@errors['password']) }}">
                                     {{ @errors['password'] }}
@@ -94,7 +94,7 @@
 
                     <div class="form-group">
                         <label for="confirmPass" class="font-weight-bold">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmPass" name="confirmPass" value="{{ @confirmPass }}">
+                        <input type="password" class="form-control" id="confirmPass" name="confirmPass">
                         <span class="err">
                               <check if="{{ isset(@errors['confirmPass']) }}">
                                     {{ @errors['confirmPass'] }}
