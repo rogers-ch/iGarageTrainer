@@ -92,4 +92,20 @@ class Validate
     }
 
     // ending of validation for first sign up page
+
+    //validation for second signup page
+
+    function validEquip($equipment)
+    {
+        $equipments = getEquip();
+        return in_array($equipment, $equipments);
+    }
+
+    function validLevel($level)
+    {
+        $levels = getLevel();
+        return in_array($level, $levels);
+    }
+
+
 }

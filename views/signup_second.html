@@ -37,35 +37,25 @@
                 <!-- row one div -->
                 <div class="row">
 
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='dumbbells'
-                                                               name='userEquipment[]' value='dumbbells'>Dumbbells</label>
-                    </div>
+                    <repeat group="{{ @equipments }}" value="{{ @equip }}">
+                        <div class="col-md-3 mr-0">
+                            <label><input type="checkbox"
+                                          id="{{ @equip }}"
+                                          name="userEquipment[]"
+                                          value="{{ @equip }}"
 
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='kettlebells'
-                                                               name='userEquipment[]' value='kettlebells'>Kettlebells</label>
-                    </div>
+                                     > {{ @equip }}
 
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='resistance_bands'
-                                                               name='userEquipment[]' value='resistance bands'>Resistance bands</label>
-                    </div>
+                            </input></label><br>
+                        </div>
+                    </repeat>
 
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='chairs'
-                                                               name='userEquipment[]' value='chairs'>Chairs</label>
-                    </div>
+                    <span class="err">
+                    <check if="{{ isset(@errors['equip']) }}">
+                        {{ @errors['equip'] }}
+                    </check>
 
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='pull-up_bar'
-                                                               name='userEquipment[]' value='pull-up bar'>Pull-up bar</label>
-                    </div>
-
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='no_equipment'
-                                                               name='userEquipment[]' value='no equipment'>No equipment</label>
-                    </div>
+                 </span>
 
 
                 </div>      <!-- end row one div -->
@@ -78,14 +68,39 @@
 
             <div class="container mx-4 form-group">
                 <!-- row div -->
+                <fieldset>
                 <div class="row">
+
+                    <repeat group="{{ @levels }}" value="{{ @level }}">
+                        <div class="col-md-3 mr-0">
+                            <label><input type="radio"
+                                          id="{{ @level }}"
+                                          name="fitnessLevel"
+                                          value="{{ @level }}"
+
+                            > {{ @level }}
+
+                                </input></label><br>
+                        </div>
+                    </repeat>
+
+
+                    <span class="err">
+                    <check if="{{ isset(@errors['fitnessLevel']) }}">
+                        {{ @errors['fitnessLevel'] }}
+                    </check>
+
+                 </span>
+                    <!--
                     <fieldset>
                         <input class="mr-2" type="radio" name="fitnessLevel" id="beginner" value="beginner"><label class="mr-3 mb-0" for="beginner">Beginner</label>
                         <input class="mr-2" type="radio" name="fitnessLevel" id="intermediate" value="intermediate"><label class="mr-3 mb-0" for="intermediate">Intermediate</label>
                         <input class="mr-2" type="radio" name="fitnessLevel" id="advanced" value="advanced"><label class="mr-3 mb-0" for="advanced">Advanced</label>
                     </fieldset>
+                    -->
 
-                </div>      <!-- end row div -->
+                </div>
+                </fieldset>    <!-- end row div -->
 
             </div>
 
