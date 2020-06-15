@@ -98,7 +98,15 @@ class Validate
     function validEquip($equipment)
     {
         $equipments = getEquip();
-        return in_array($equipment, $equipments);
+
+        foreach ($equipment as $equip) {
+            if (!in_array($equip, $equipments)) {
+                return false;
+            }
+        }
+
+        return true;
+
     }
 
     function validLevel($level)

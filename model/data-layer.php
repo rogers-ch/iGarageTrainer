@@ -1,12 +1,12 @@
 <?php
 function getEquip(){
 
-        return array("Dumbbells","Kettlebells","Resistance bands","Chairs","Pull-up bar","No equipment");
+        return array("dumbbells","kettlebells","resistance bands","chairs","pull-up bar","no equipment");
 
 }
 
 function getLevel(){
 
-    return array("Beginner","Intermediate","Advanced");
+    return array("beginner","intermediate","advanced");
 
 }

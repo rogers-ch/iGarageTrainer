@@ -40,13 +40,13 @@
                     <repeat group="{{ @equipments }}" value="{{ @equip }}">
                         <div class="col-md-3 mr-0">
                             <label><input type="checkbox"
-                                          id="{{ @equip }}"
+                                          id="{{ str_replace(' ', '_', @equip) }}"
                                           name="userEquipment[]"
                                           value="{{ @equip }}"
 
-                                     > {{ @equip }}
+                                     > {{ ucfirst(@equip) }}
 
-                            </input></label><br>
+                            </label><br>
                         </div>
                     </repeat>
 
@@ -78,7 +78,7 @@
                                           name="fitnessLevel"
                                           value="{{ @level }}"
 
-                            > {{ @level }}
+                            > {{ ucfirst(@level) }}
 
                                 </input></label><br>
                         </div>

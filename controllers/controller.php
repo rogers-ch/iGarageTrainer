@@ -183,13 +183,22 @@ class Controller
         if($_SERVER["REQUEST_METHOD"]=="POST") {
             //var_dump($_POST);
 
-            //validate data - ADD LATER
-            if (!$this->_validator->validEquip($_POST['userEquipment'])) {
-                $this->_f3->set('errors["equip"]', "Please select an equipment");
+            //validate data
+            if (!empty($_POST['userEquipment'])) {
+
+                if (!$this->_validator->validEquip($_POST['userEquipment'])) {
+                    $this->_f3->set('errors["equip"]', "Please choose valid equipment.");
+                }
+            }
+            else {
+                //No equipment selected
+                $this->_f3->set('errors["equip"]', "Please select your equipment.");
+
             }
 
+
             if (!$this->_validator->validLevel($_POST['fitnessLevel'])) {
-                $this->_f3->set('errors["fitnessLevel"]', "Please select a level");
+                $this->_f3->set('errors["fitnessLevel"]', "Please select your fitness level.");
             }
 
 

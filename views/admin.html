@@ -48,9 +48,14 @@
 
                     </div>
                 </div>
+            </div>
 
                 <!-- get equipment -->
-                <label class="h5">Equipment</label>
+
+            <hr class="border-light">
+
+            <label class="">Equipment</label>
+            <div class="container mx-4 form-group">
 
                 <!-- row one div -->
                 <div class="row">
@@ -92,18 +97,62 @@
             <hr class="border-light">
 
             <!-- get fitness level -->
-            <label class="h4">Difficulty</label>
+            <label class="">Difficulty</label>
 
             <div class="container mx-4 form-group">
                 <!-- row div -->
                 <div class="row">
                     <fieldset>
-                        <input class="mr-2" type="radio" name="fitnessLevel" id="beginner" value="beginner"><label class="mr-3 mb-0" for="beginner">Beginner</label>
-                        <input class="mr-2" type="radio" name="fitnessLevel" id="intermediate" value="intermediate"><label class="mr-3 mb-0" for="intermediate">Intermediate</label>
-                        <input class="mr-2" type="radio" name="fitnessLevel" id="advanced" value="advanced"><label class="mr-3 mb-0" for="advanced">Advanced</label>
+                        <input class="mr-2" type="radio" name="fitnessLevel" id="beginner" value="1"><label class="mr-3 mb-0" for="beginner">Beginner</label>
+                        <input class="mr-2" type="radio" name="fitnessLevel" id="intermediate" value="2"><label class="mr-3 mb-0" for="intermediate">Intermediate</label>
+                        <input class="mr-2" type="radio" name="fitnessLevel" id="advanced" value="3"><label class="mr-3 mb-0" for="advanced">Advanced</label>
                     </fieldset>
 
                 </div>      <!-- end row div -->
+            </div>
+
+            <hr class="border-light">
+
+            <label class="">Muscle Group</label>
+
+            <div class="container mx-4 form-group">
+
+                <div class="row">
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='biceps'
+                                                               name='muscleGroup[]' value='biceps'>Biceps</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='triceps'
+                                                               name='muscleGroup[]' value='triceps'>Triceps</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='chest'
+                                                               name='muscleGroup[]' value='chest'>Chest</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='back'
+                                                               name='muscleGroup[]' value='back'>Back</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='abs'
+                                                               name='muscleGroup[]' value='abs'>Abs</label>
+                    </div>
+
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='legs'
+                                                               name='muscleGroup[]' value='legs'>Legs</label>
+                    </div>
+
+
+                </div>      <!-- end row one div -->
+
+
 
             </div>
 
