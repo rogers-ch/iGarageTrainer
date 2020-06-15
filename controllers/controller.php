@@ -407,6 +407,24 @@ class Controller
             $this->_f3->reroute('/sign-in');
         }
 
+        //Get exercises for Workout object
+        $exercisesArray = getSixExercises($_SESSION['user']);
+
+        //Create Workout object
+        $userWorkout = new Workout($_SESSION['user']->getUserNum(), $exercisesArray);
+
+        //echo print_r($userWorkout);
+
+        //Save Workout and User to hive
+        $this->_f3->set('workout', $userWorkout);
+        $this->_f3->set('user', $_SESSION['user']);
+
+        //Save Workout to database
+
+
+
+
+
         $view = new Template();
         echo $view->render("views/workoutView.html");
 

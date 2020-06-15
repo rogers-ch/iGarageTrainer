@@ -16,18 +16,16 @@ class Workout
     private $_date;
 
     /**
-     * Workout constructor.
-     * @param $workout_id
+     * Workout constructor
      * @param $user_id
      * @param $exercises
-     * @param $date
      */
-    public function __construct($workout_id, $user_id, $exercises, $date)
+    public function __construct($user_id, $exercises)
     {
-        $this->_workout_id = $this->setWorkoutId($workout_id);
-        $this->_user_id = $this->setUserId($user_id);
-        $this->_exercises = $this->setExercises($exercises);
-        $this->_date = $this->setDate($date);
+        $this->_workout_id = NULL;
+        $this->setUserId($user_id);
+        $this->setExercises($exercises);
+        $this->_date = NULL;
     }
 
     /**
