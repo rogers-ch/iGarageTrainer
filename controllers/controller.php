@@ -160,6 +160,8 @@ class Controller
      */
     public function signUp2()
     {
+
+
         //echo '<h1>Hello out there</h1>';
 
         //Redirect to default route if user tries to reach this page directly
@@ -182,6 +184,14 @@ class Controller
             //var_dump($_POST);
 
             //validate data - ADD LATER
+            if (!$this->_validator->validEquip($_POST['userEquipment'])) {
+                $this->_f3->set('errors["equip"]', "Please select an equipment");
+            }
+
+            if (!$this->_validator->validLevel($_POST['fitnessLevel'])) {
+                $this->_f3->set('errors["fitnessLevel"]', "Please select a level");
+            }
+
 
             //data is valid - store data in session variables and display the next form
             if(empty($this->_f3->get('errors'))) {
@@ -205,6 +215,10 @@ class Controller
         $this->_f3->set('levelGiven', $_POST['fitnessLevel']);
 
         */
+        $this->_f3->set('equipments', getEquip());
+        $this->_f3->set('levels', getLevel());
+
+
 
         $view = new Template();
         echo $view->render("views/signup_second.html");
