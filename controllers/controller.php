@@ -420,7 +420,7 @@ class Controller
         $this->_f3->set('user', $_SESSION['user']);
 
         //Save Workout to database
-
+        $GLOBALS['db']->writeWorkout($userWorkout);
 
 
 

@@ -34,7 +34,8 @@ CREATE TABLE equipment (
 CREATE TABLE workout_line (
     workout_id INT NOT NULL,
     exercise_id INT NOT NULL,
-    primary key(workout_id, exercise_id),
+    workout_order INT NOT NULL,
+    primary key(workout_id, exercise_id, workout_order),
     FOREIGN KEY (workout_id) REFERENCES workout(workout_id),
     FOREIGN KEY (exercise_id) REFERENCES exercise(exercise_id)
 
@@ -105,3 +106,6 @@ VALUES (8, 1),
     'no equipment' - 6
 
  */
+
+SELECT workout_id, DATE(date_time) as 'Date' FROM workout
+WHERE user_id = 29 AND date_time BETWEEN DATE_SUB(NOW(), INTERVAL 30 DAY) AND NOW();
