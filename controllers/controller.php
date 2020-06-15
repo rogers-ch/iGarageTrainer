@@ -195,13 +195,13 @@ class Controller
             }
             else {
                 //No equipment selected
-                $this->_f3->set('errors["equip"]', "Please select your equipment.");
+                $this->_f3->set('errors["equip"]', "Required field: Please select your equipment.");
 
             }
 
 
             if (!$this->_validator->validLevel($_POST['fitnessLevel'])) {
-                $this->_f3->set('errors["fitnessLevel"]', "Please select your fitness level.");
+                $this->_f3->set('errors["fitnessLevel"]', "Required field: Please select your fitness level.");
             }
 
 
