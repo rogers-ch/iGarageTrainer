@@ -62,32 +62,32 @@
 
                     <div class="col-md-3 mr-0">
                         <label class='form-check-label'><input type='checkbox' class='form-check-input' id='dumbbells'
-                                                               name='userEquipment[]' value='dumbbells'>Dumbbells</label>
+                                                               name='equipment[]' value='dumbbells'>Dumbbells</label>
                     </div>
 
                     <div class="col-md-3 mr-0">
                         <label class='form-check-label'><input type='checkbox' class='form-check-input' id='kettlebells'
-                                                               name='userEquipment[]' value='kettlebells'>Kettlebells</label>
+                                                               name='equipment[]' value='kettlebells'>Kettlebells</label>
                     </div>
 
                     <div class="col-md-3 mr-0">
                         <label class='form-check-label'><input type='checkbox' class='form-check-input' id='resistance_bands'
-                                                               name='userEquipment[]' value='resistance bands'>Resistance bands</label>
+                                                               name='equipment[]' value='resistance bands'>Resistance bands</label>
                     </div>
 
                     <div class="col-md-3 mr-0">
                         <label class='form-check-label'><input type='checkbox' class='form-check-input' id='chairs'
-                                                               name='userEquipment[]' value='chairs'>Chairs</label>
+                                                               name='equipment[]' value='chairs'>Chairs</label>
                     </div>
 
                     <div class="col-md-3 mr-0">
                         <label class='form-check-label'><input type='checkbox' class='form-check-input' id='pull-up_bar'
-                                                               name='userEquipment[]' value='pull-up bar'>Pull-up bar</label>
+                                                               name='equipment[]' value='pull-up bar'>Pull-up bar</label>
                     </div>
 
                     <div class="col-md-3 mr-0">
                         <label class='form-check-label'><input type='checkbox' class='form-check-input' id='no_equipment'
-                                                               name='userEquipment[]' value='no equipment'>No equipment</label>
+                                                               name='equipment[]' value='no equipment'>No equipment</label>
                     </div>
 
 
@@ -99,14 +99,27 @@
             <!-- get fitness level -->
             <label class="">Difficulty</label>
 
-            <div class="container mx-4 form-group">
+            <div class="container mx-4 form-group p-0">
                 <!-- row div -->
                 <div class="row">
-                    <fieldset>
-                        <input class="mr-2" type="radio" name="fitnessLevel" id="beginner" value="1"><label class="mr-3 mb-0" for="beginner">Beginner</label>
-                        <input class="mr-2" type="radio" name="fitnessLevel" id="intermediate" value="2"><label class="mr-3 mb-0" for="intermediate">Intermediate</label>
-                        <input class="mr-2" type="radio" name="fitnessLevel" id="advanced" value="3"><label class="mr-3 mb-0" for="advanced">Advanced</label>
-                    </fieldset>
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'>
+                            <input class="mr-2" type="radio" class='form-check-input'
+                                   name="difficulty" id="beginner" value="1">Beginner
+                        </label>
+                    </div>
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'>
+                            <input class="mr-2" type="radio" class='form-check-input'
+                                   name="difficulty" id="intermediate" value="2">Intermediate
+                        </label>
+                    </div>
+                    <div class="col-md-3 mr-0">
+                        <label class='form-check-label'>
+                            <input class="mr-2" type="radio" class='form-check-input'
+                                   name="difficulty" id="advanced" value="3">Advanced
+                        </label>
+                    </div>
 
                 </div>      <!-- end row div -->
             </div>
@@ -120,33 +133,33 @@
                 <div class="row">
 
                     <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='biceps'
-                                                               name='muscleGroup[]' value='biceps'>Biceps</label>
+                        <label class='form-check-label'><input type='radio' class='form-check-input' id='biceps'
+                                                               name='muscleGroup' value='biceps'>Biceps</label>
                     </div>
 
                     <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='triceps'
-                                                               name='muscleGroup[]' value='triceps'>Triceps</label>
+                        <label class='form-check-label'><input type='radio' class='form-check-input' id='triceps'
+                                                               name='muscleGroup' value='triceps'>Triceps</label>
                     </div>
 
                     <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='chest'
-                                                               name='muscleGroup[]' value='chest'>Chest</label>
+                        <label class='form-check-label'><input type='radio' class='form-check-input' id='chest'
+                                                               name='muscleGroup' value='chest'>Chest</label>
                     </div>
 
                     <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='back'
-                                                               name='muscleGroup[]' value='back'>Back</label>
+                        <label class='form-check-label'><input type='radio' class='form-check-input' id='back'
+                                                               name='muscleGroup' value='back'>Back</label>
                     </div>
 
                     <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='abs'
-                                                               name='muscleGroup[]' value='abs'>Abs</label>
+                        <label class='form-check-label'><input type='radio' class='form-check-input' id='abs'
+                                                               name='muscleGroup' value='abs'>Abs</label>
                     </div>
 
                     <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='legs'
-                                                               name='muscleGroup[]' value='legs'>Legs</label>
+                        <label class='form-check-label'><input type='radio' class='form-check-input' id='legs'
+                                                               name='muscleGroup' value='legs'>Legs</label>
                     </div>
 
 
@@ -159,7 +172,7 @@
             <div class="row">
                 <div class="ml-auto mr-0">
                     <input class="btn btn-warning"
-                           type="submit" value="Create my account >">
+                           type="submit" value="Add Exercise >">
                 </div>
             </div>
 

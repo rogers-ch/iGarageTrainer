@@ -482,6 +482,25 @@ class Controller
 
         }
 
+        //If the form has been submitted
+        if($_SERVER["REQUEST_METHOD"]=="POST") {
+            //var_dump($_POST);
+
+            //validate data - ADD LATER
+
+            //instantiate an Exercise object
+            $exercise = new Exercise($_POST['exerciseName'], $_POST['description'],
+                $_POST['difficulty'], $_POST['muscleGroup'], $_POST['equipment']);
+
+            //echo print_r($exercise);
+
+
+            //Write exercise to database
+            $GLOBALS['db']->writeExercise($exercise);
+
+        }
+
+
         $view = new Template();
         echo $view->render("views/admin.html");
 

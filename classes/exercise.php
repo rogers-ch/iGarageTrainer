@@ -15,23 +15,26 @@ class Exercise
     private $_description;
     private $_difficulty;
     private $_muscleGroup;
+    private $_equipment;
 
     /**
      * Exercise constructor.
-     * @param $exercise_id
      * @param $exercise_name
      * @param $description
      * @param $difficulty
      * @param $muscleGroup
+     * @param $equipment
      */
-    public function __construct($exercise_id, $exercise_name, $description, $difficulty, $muscleGroup)
+    public function __construct($exercise_name, $description, $difficulty, $muscleGroup, $equipment)
     {
-        $this->_exercise_id = $this->setExerciseId($exercise_id);
-        $this->_exercise_name = $this->setExerciseName($exercise_name);
-        $this->_description = $this->setDescription($description);
-        $this->_difficulty = $this->setDifficulty($difficulty);
-        $this->_muscleGroup = $this->setMuscleGroup($muscleGroup);
+        $this->setExerciseId(NULL);
+        $this->setExerciseName($exercise_name);
+        $this->setDescription($description);
+        $this->setDifficulty($difficulty);
+        $this->setMuscleGroup($muscleGroup);
+        $this->setEquipment($equipment);
     }
+
 
     /**
      * Get the exercise id for this Exercise
@@ -123,7 +126,23 @@ class Exercise
         $this->_muscleGroup = $muscleGroup;
     }
 
+    /**
+     * Get the equipment for this Exercise
+     * @return Array of equipment
+     */
+    public function getEquipment()
+    {
+        return $this->_equipment;
+    }
 
+    /**
+     * Set the equipment for this Exercise
+     * @param Array $equipment
+     */
+    public function setEquipment($equipment)
+    {
+        $this->_equipment = $equipment;
+    }
 
 
 }
