@@ -444,6 +444,9 @@ class Controller
             $this->_f3->reroute('/sign-in');
         }
 
+        //Read workouts from database
+        $workoutsArray = getWorkoutHistory($_SESSION['user']);
+
         $view = new Template();
         echo $view->render("views/workoutLog.html");
 

@@ -108,4 +108,4 @@ VALUES (8, 1),
  */
 
 SELECT workout_id, DATE(date_time) as 'Date' FROM workout
-WHERE user_id = 29 AND date_time BETWEEN DATE_SUB(NOW(), INTERVAL 30 DAY) AND NOW();
+WHERE user_id = 29 AND date_time BETWEEN DATE_SUB(NOW(), INTERVAL 14 DAY) AND NOW();
