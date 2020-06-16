@@ -50,6 +50,17 @@ function getWorkoutHistory($user)
     //Create Workout objects using the data from the database
     foreach($workoutsArray as $workout) {
 
+        //echo print_r($workout);
+
+        /*
+         Array ( [workout_id] => 2
+                 [Date] => June 15th, 2020
+                 [exerciseIds] => Array ( [0] => 8 [1] => 12 [2] => 28 [3] => 14 [4] => 24 [5] => 27 ) ) 1
+         Array ( [workout_id] => 3
+                 [Date] => June 15th, 2020
+                 [exerciseIds] => Array ( [0] => 10 [1] => 24 [2] => 8 [3] => 24 [4] => 10 [5] => 28 ) ) 1
+         */
+
         $exerciseArray = array();
         $exerciseObjArray = array();
 
@@ -90,7 +101,7 @@ function getWorkoutHistory($user)
 
     //echo print_r($workoutObjArray);
 
-    //return $objectArray;
+    return $workoutObjArray;
 
 
 }

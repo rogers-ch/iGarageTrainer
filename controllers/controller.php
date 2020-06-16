@@ -444,8 +444,13 @@ class Controller
             $this->_f3->reroute('/sign-in');
         }
 
-        //Read workouts from database
+        //Get the workout history for the user
         $workoutsArray = getWorkoutHistory($_SESSION['user']);
+
+        //Save Workouts and User to hive
+        $this->_f3->set('workouts', $workoutsArray);
+        $this->_f3->set('user', $_SESSION['user']);
+        $this->_f3->set('counter', 1);
 
         $view = new Template();
         echo $view->render("views/workoutLog.html");
