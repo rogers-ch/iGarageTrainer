@@ -1,4 +1,16 @@
 <?php
+
+/**
+ * index.php
+ *
+ * This is the index page for the iGarageTrainer web application.
+ *
+ * @author      Corey Rogers <crogers25@mail.greenriver.edu>
+ * @author      Chunhai Yang <cyang21@mail.greenriver.edu>
+ * @version     1.0
+ *
+ */
+
 //Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);

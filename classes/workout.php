@@ -5,7 +5,8 @@
  * Class Workout
  * Stores information associated with a workout.
  *
- * @author      Corey Rogers <crogers25@mail.greenriver.edu> and Chunhai Yang <cyang21@mail.greenriver.edu>
+ * @author      Corey Rogers <crogers25@mail.greenriver.edu>
+ * @author      Chunhai Yang <cyang21@mail.greenriver.edu>
  * @version     1.0
  */
 class Workout

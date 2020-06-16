@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
     Created by:                Corey Rogers and Chunhai Yang
-    Date submitted (v1.0):     06/01/2020
+    Date submitted (v2.0):     06/16/2020
     Assignment:                Final Project for IT 328
     File Description:          This is the workout display page where users can view
                                the workout generated based on their preferences for the
@@ -38,7 +38,7 @@
                 <a class="nav-link" href="/328/iGarageTrainer/dashboard">Member Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="/328/iGarageTrainer/myWorkout">My Workout</a>
+                <a class="nav-link" href="/328/iGarageTrainer/dashboard">< BACK</a>
             </li>
             <li class="nav-item">
                 <check if="{{ isset($_SESSION['loggedIn']) }}">
@@ -67,6 +67,7 @@
                     <th scope="col">Exercise</th>
                     <th scope="col">Equipment</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Difficulty</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -84,6 +85,7 @@
                                 </repeat>
                             </td>
                             <td>{{ @exercise->getDescription() }}</td>
+                            <td>{{ @exercise->getDifficulty() }}</td>
                         </tr>
                     </repeat>
 
@@ -92,6 +94,13 @@
 
         </div>  <!-- end table div -->
 
+        <div class="row">
+            <div class="ml-auto mr-0">
+                <a href="/328/iGarageTrainer/dashboard">
+                    <button type="submit" class="btn btn-warning text-center" id="returnButton">Return to Dashboard</button>
+                </a>
+            </div>
+        </div>
 
     </div>
 

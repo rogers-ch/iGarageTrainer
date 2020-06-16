@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
     Created by:                Corey Rogers and Chunhai Yang
-    Date submitted (v1.0):     06/01/2020
+    Date submitted (v2.0):     06/16/2020
     Assignment:                Final Project for IT 328
     File Description:          This is the workout log display page where users can view
                                their workouts for the last 30 days in the
@@ -38,7 +38,7 @@
                 <a class="nav-link" href="/328/iGarageTrainer/dashboard">Member Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="/328/iGarageTrainer/myWorkoutLog">Workout Log</a>
+                <a class="nav-link" href="/328/iGarageTrainer/dashboard">< BACK</a>
             </li>
             <li class="nav-item">
                 <check if="{{ isset($_SESSION['loggedIn']) }}">
@@ -82,6 +82,7 @@
                                     <th scope="col">Exercise</th>
                                     <th scope="col">Equipment</th>
                                     <th scope="col">Description</th>
+                                    <th scope="col">Difficulty</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -96,6 +97,7 @@
                                             {{ ucfirst(@equipment) }}
                                         </td>
                                         <td>{{ @workout->getExercises()[@i]->getDescription() }}</td>
+                                        <td>{{ @workout->getExercises()[@i]->getDifficulty() }}</td>
                                     </tr>
                                 </loop>
 
@@ -118,6 +120,14 @@
             <img src="images/weightsAndBarbell.jpg" class="rounded img-fluid p-0 my-3 col-8 offset-2" alt="Weights and a barbell">
 
         </div>  <!-- close image div -->
+
+        <div class="row">
+            <div class="ml-auto mr-0">
+                <a href="/328/iGarageTrainer/dashboard">
+                    <button type="submit" class="btn btn-warning text-center" id="returnButton">Return to Dashboard</button>
+                </a>
+            </div>
+        </div>
 
     </div>
 

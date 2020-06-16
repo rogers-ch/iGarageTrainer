@@ -3,7 +3,8 @@
 /**
  * Class Controller
  *
- * @authors Corey Rogers <crogers25@mail.greenriver.edu> and Chunhai Yang <cyang21@mail.greenriver.edu>
+ * @author Corey Rogers <crogers25@mail.greenriver.edu>
+ * @author Chunhai Yang <cyang21@mail.greenriver.edu>
  * @version 1.0
  */
 class Controller
@@ -258,6 +259,9 @@ class Controller
             $this->_f3->reroute('/dashboard');
         }
 
+        //Save user to hive
+        $this->_f3->set('user', $_SESSION['user']);
+
         //Write user to database
         $GLOBALS['db']->writeUser($_SESSION['user']);
 
@@ -278,6 +282,13 @@ class Controller
     public function signIn()
     {
         //echo '<h1>Hello existing member</h1>';
+
+        //Redirect to member dashboard if user tries to reach this page while logged in
+        if (isset($_SESSION['loggedIn'])) {
+            //Redirect to dashboard page
+            $this->_f3->reroute('/dashboard');
+        }
+
 
         //If the form has been submitted
         if($_SERVER["REQUEST_METHOD"]=="POST") {

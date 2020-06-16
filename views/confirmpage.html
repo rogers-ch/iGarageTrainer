@@ -2,9 +2,9 @@
 <html lang="en">
 <!--
     Created by:                Corey Rogers and Chunhai Yang
-    Date submitted (v1.0):     06/01/2020
+    Date submitted (v2.0):     06/16/2020
     Assignment:                Final Project for IT 328
-    File Description:          This is the first page of the new account signup form for the
+    File Description:          This is the confirm page for the signup form for the
                                iGarage Trainer web app
 -->
 
@@ -31,7 +31,7 @@
                 <!-- left column -->
                 <div class="col-md-6">
                     <div class="text-center">
-                        <h2 class="h2 py-3">Thank you for choosing iGarage Trainer!</h2>
+                        <h2 class="h2 py-3">Thank you for choosing iGarage Trainer, {{ @user->getFName() }}!</h2>
                     </div>
 
                     <hr class="border-light">

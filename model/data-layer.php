@@ -1,18 +1,41 @@
 <?php
+
+/**
+ * data-layer.php
+ *
+ * This file contains data-related functions for the iGarageTrainer web application.
+ *
+ * @author      Corey Rogers <crogers25@mail.greenriver.edu>
+ * @author      Chunhai Yang <cyang21@mail.greenriver.edu>
+ * @version     1.0
+ *
+ */
+
+
+/**
+ * Returns an array of possible exercise equipment
+ * @return array
+ */
 function getEquip()
 {
         return array("dumbbells","kettlebells","resistance bands","chairs","pull-up bar","no equipment");
 
 }
 
+/**
+ * Returns an array of possible fitness levels
+ * @return array
+ */
 function getLevel()
 {
     return array("beginner","intermediate","advanced");
 
 }
 
-/*
- * Returns six Exercise objects
+/**
+ * Creates six Exercise objects based on data from the database
+ * @param $user
+ * @return array containing the six Exercise objects
  */
 function getSixExercises($user)
 {
@@ -39,6 +62,11 @@ function getSixExercises($user)
 
 }
 
+/**
+ * Creates an array of Workout objects based on information obtained from the database
+ * @param $user
+ * @return array contains the Workout objects for user's workouts over the last 14 days
+ */
 function getWorkoutHistory($user)
 {
     //Get the user's workouts for the last two weeks
