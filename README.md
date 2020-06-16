@@ -1,27 +1,29 @@
 # iGarageTrainer
-##Project Requirements
-###Separates all database/business logic using the MVC pattern.
+## Project Requirements
+### Separates all database/business logic using the MVC pattern.
 
-###Routes all URLs and leverages a templating language using the Fat-Free framework.
+### Routes all URLs and leverages a templating language using the Fat-Free framework.
 
-###Has a clearly defined database layer using PDO and prepared statements. You should have at least two related tables.
+### Has a clearly defined database layer using PDO and prepared statements. You should have at least two related tables.
 
-###Data can be viewed and added.
+### Data can be viewed and added.
 
-###Has a history of commits from both team members to a Git repository. Commits are clearly commented.
+### Has a history of commits from both team members to a Git repository. Commits are clearly commented.
 
-###Uses OOP, and defines multiple classes, including at least one inheritance relationship.
+### Uses OOP, and defines multiple classes, including at least one inheritance relationship.
 
-###Contains full Docblocks for all PHP files and follows PEAR standards.
+### Contains full Docblocks for all PHP files and follows PEAR standards.
 
-###Has full validation on the client side through JavaScript and server side through PHP.
+### Has full validation on the client side through JavaScript and server side through PHP.
 
-###All code is clean, clear, and well-commented. DRY (Don't Repeat Yourself) is practiced.
+### All code is clean, clear, and well-commented. DRY (Don't Repeat Yourself) is practiced.
 
-###Your submission shows adequate effort for a final project in a full-stack web development course.
+### Your submission shows adequate effort for a final project in a full-stack web development course.
 
-##UML class diagram
+## UML class diagram
+https://github.com/rogers-ch/iGarageTrainer/blob/master/images/iGarageTrainer_UML_Diagram.png
 
-##ER database diagram
+## ER database diagram
+https://github.com/rogers-ch/iGarageTrainer/blob/master/images/ERDiagram.jpg
 
 
