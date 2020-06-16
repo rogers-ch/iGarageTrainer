@@ -68,12 +68,15 @@ $f3->route('GET|POST /dashboard', function(){
 
 });
 
+/*
 //Workout Options Route
 $f3->route('GET|POST /workout_options', function(){
 
     $GLOBALS['controller']->workout_options();
 
 });
+
+*/
 
 //My Workout Route
 $f3->route('GET|POST /myWorkout', function(){
