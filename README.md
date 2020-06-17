@@ -1,4 +1,6 @@
 # iGarageTrainer
+## Group Members
+Corey Rogers and Chunhai Yang
 ## Project Requirements
 ### Separates all database/business logic using the MVC pattern.
 We have separate model, views, and controllers folders to hold the files for each part of the MVC
